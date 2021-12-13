@@ -30,11 +30,7 @@ class Lesson2 {
      */
     static String initials(String fullName) {
         String[] arrString = fullName.split(" ");
-        String result = "";
-        for(int i = 0; i < arrString.length; i++){
-            result += arrString[i].toUpperCase().charAt(0) + ".";
-        }
-        return result;
+        return ("" + arrString[0].charAt(0) + "." + arrString[1].charAt(0) + "." + arrString[2].charAt(0) + ".").toUpperCase();
     }
 
 }
