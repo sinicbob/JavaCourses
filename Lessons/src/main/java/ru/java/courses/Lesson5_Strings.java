@@ -1,5 +1,8 @@
 package ru.java.courses;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 public class Lesson5_Strings {
 
     /**
@@ -14,7 +17,8 @@ public class Lesson5_Strings {
      * @return полученную строку.
      */
     public static String task1(String[] strings) {
-        return null;
+        strings = Arrays.stream(strings).distinct().toArray(String[]::new);
+        return String.join("", strings);
     }
 
     /**
@@ -28,7 +32,15 @@ public class Lesson5_Strings {
      * @return  массив из полученных строк отсортированный по названию книг по алфавиту.
      */
     public static String[] task2(String[][] pairs) {
-        return null;
+        String[] result = new String[pairs.length];
+        String[] autor;
+        for(int i = 0 ,j = 0; i < pairs.length;i++){
+            autor = pairs[i][j+1].split(" ");
+            String res = autor[0].charAt(0) + "." + autor[1].charAt(0) + "." + autor[2];
+            result[i] = "\"" + pairs[i][j].replace("\"","") + "\"" + " " + res;
+        }
+//        Arrays.stream(result).forEach(System.out::println);
+        return result;
     }
 
     /**
@@ -43,6 +55,18 @@ public class Lesson5_Strings {
      * @return подстроку между найденными символами
      */
     public static String task3(String str, char symb1, char symb2) {
-        return null;
+        int x = 0, y = 0;
+        for(int i = 0; i < str.length(); i++){
+            if(String.valueOf(str.charAt(i)).equals(String.valueOf(symb1))){
+                x = i;
+            }
+            if(String.valueOf(str.charAt(i)).equals(String.valueOf(symb2))){
+                y = i;
+            }
+        }
+        if(x > y){
+            return  str.substring(y + 1, x);
+        }
+        return (x == 0 | y == 0) ? "" : str.substring(x + 1,y);
     }
 }
