@@ -36,7 +36,7 @@ public class Lesson5_Strings {
         String[] autor;
         for(int i = 0 ,j = 0; i < pairs.length;i++){
             autor = pairs[i][j+1].split(" ");
-            String res = autor[0].charAt(0) + "." + autor[1].charAt(0) + "." + autor[2];
+            String res = autor[0].charAt(0) + ". " + autor[1].charAt(0) + ". " + autor[2];
             result[i] = "\"" + pairs[i][j].replace("\"","") + "\"" + " " + res;
         }
 //        Arrays.stream(result).forEach(System.out::println);
