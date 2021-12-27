@@ -19,21 +19,16 @@ public class Lesson4_FlowControl {
      * @return самую длинную строку из полученного массива
      */
     public static String task1(String[] strings) {
-        if(strings.length > 0){
-            int max = strings[0].length();
-            String result = strings[0];
-            for(int i = 0; i < strings.length; i++){
-                if(strings[i].length() > max){
-                    max = strings[i].length();
-                    result = strings[i];
-                }else if (strings.length == 0){
-                    return "";
-                }
-            }
-            return result;
-        }else {
-            return "";
+        if(strings.length == 1){
+            return strings[0];
         }
+       String max = "";
+        for(String current: strings){
+            if(current.length() > max.length()){
+                max = current;
+            }
+        }
+        return max;
     }
 
     /**
@@ -56,24 +51,16 @@ public class Lesson4_FlowControl {
      * @return целочисленный результат выполнения операции
      */
     public static int task2(int i, int k, char operation) {
-        int result = 0;
         if(i == 0 || k == 0 && operation == '/'){
-            return result;
+            return 0;
         }
         switch (operation) {
-            case '*': result = i * k;
-                break;
-            case '-': result = i - k;
-                break;
-            case '+': result = i + k;
-                break;
-            case '/': result = i / k;
-                break;
-            case '%': result = i % k;
-                break;
-            default: result = 0;
-                break;
+            case '*': return i * k;
+            case '-': return i - k;
+            case '+': return i + k;
+            case '/': return i / k;
+            case '%': return i % k;
+            default: return 0;
         }
-        return result;
     }
 }
