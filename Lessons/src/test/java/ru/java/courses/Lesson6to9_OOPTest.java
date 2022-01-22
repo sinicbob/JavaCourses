@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.java.courses.sport.*;
+import ru.java.courses.sport.coach.Coach;
 
 
 public class Lesson6to9_OOPTest {

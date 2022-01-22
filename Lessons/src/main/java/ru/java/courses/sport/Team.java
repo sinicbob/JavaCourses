@@ -1,5 +1,7 @@
 package ru.java.courses.sport;
 
+import ru.java.courses.sport.coach.Coach;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,13 +9,13 @@ import java.util.List;
 public abstract class Team<T extends Athlete & ScoringPlayer> {
 
     public String name;
-    public Coach coach;
+    public ru.java.courses.sport.coach.Coach coach;
 
     public List<T> players = new ArrayList<>();
 
     Team(String name){
         if(name == null || name.isEmpty()){
-            throw new IllegalArgumentException("У команды должно быть имя");
+            throw new IllegalArgumentException("");
         }
         this.name = name;
     }
@@ -44,7 +46,7 @@ public abstract class Team<T extends Athlete & ScoringPlayer> {
         return name;
     }
 
-    public void setCoach(Coach coach) {
+    public void setCoach(ru.java.courses.sport.coach.Coach coach) {
         this.coach = coach;
     }
 

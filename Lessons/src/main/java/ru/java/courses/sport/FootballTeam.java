@@ -13,7 +13,6 @@ public class FootballTeam extends Team {
        super(name);
     }
 
-
     @Override
     public int getMaxPlayersCount() {
         return MAX_PLAYERS;
