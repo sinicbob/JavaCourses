@@ -11,7 +11,7 @@ public class Coach {
 
     public Coach(String name) {
         if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("У спортсмена всегда должно быть имя!");
+            throw new IllegalArgumentException("");
         }
         this.name = name;
     }
@@ -26,6 +26,9 @@ public class Coach {
     }
 
     public void setName(String name) {
+        if(name == null || name.isEmpty()){
+            throw new IllegalArgumentException("");
+        }
         this.name = name;
     }
 
