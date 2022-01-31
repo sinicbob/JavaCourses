@@ -17,10 +17,12 @@ public class Lesson10_CollectionsLists {
      */
     public static List<String> task1(List<Integer> source) {
         Collections.sort(source);
-        Set<Integer> set = new LinkedHashSet<>(source);
-        List<String> strings = new ArrayList<String>(set.size());
-        for(Integer i : set){
-            strings.add(String.valueOf(i));
+//        Set<Integer> set = new LinkedHashSet<>(source);
+        List<String> strings = new ArrayList<String>(source.size());
+        for(Integer i : source){
+            if(!strings.contains(String.valueOf(i))){
+                strings.add(String.valueOf(i));
+            }
         }
         return strings;
     }
@@ -35,11 +37,12 @@ public class Lesson10_CollectionsLists {
      * Подсказка: на входе может быть любое количество чисел
      */
     public static List<Integer> task2(Integer... array) {
-        List<Integer> list = new ArrayList<Integer>(9);
-        Collections.addAll(list, array);
-        for(Integer i : list){
-            if(list.get(list.indexOf(i)) % 2 == 0){
-                list.set(list.indexOf(i), list.get(list.indexOf(i)) + 1);
+        List<Integer> list = new ArrayList<>(array.length);
+        for(Integer i : array){
+            if( i % 2 == 0){
+                list.add(i + 1);
+            }else{
+                list.add(i);
             }
         }
         return (list.size() > 8) ? list.subList(3,list.size() - 1) : list.subList(3, list.size());
