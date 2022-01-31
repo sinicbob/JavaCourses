@@ -1,9 +1,6 @@
 package ru.java.courses;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Lesson10_CollectionsLists {
 
@@ -19,9 +16,13 @@ public class Lesson10_CollectionsLists {
      * Удалять элементы из итерируемого списка нельзя - выпадет исключение
      */
     public static List<String> task1(List<Integer> source) {
-        // свой код нужно писать тут
-        // следующую строку можно удалять
-        return null;
+        Collections.sort(source);
+        Set<Integer> set = new LinkedHashSet<>(source);
+        List<String> strings = new ArrayList<String>(set.size());
+        for(Integer i : set){
+            strings.add(String.valueOf(i));
+        }
+        return strings;
     }
 
     /**
@@ -34,8 +35,13 @@ public class Lesson10_CollectionsLists {
      * Подсказка: на входе может быть любое количество чисел
      */
     public static List<Integer> task2(Integer... array) {
-        // свой код нужно писать тут
-        // следующую строку можно удалять
-        return null;
+        List<Integer> list = new ArrayList<Integer>(9);
+        Collections.addAll(list, array);
+        for(Integer i : list){
+            if(list.get(list.indexOf(i)) % 2 == 0){
+                list.set(list.indexOf(i), list.get(list.indexOf(i)) + 1);
+            }
+        }
+        return (list.size() > 8) ? list.subList(3,list.size() - 1) : list.subList(3, list.size());
     }
 }
