@@ -17,7 +17,6 @@ public class Lesson10_CollectionsLists {
      */
     public static List<String> task1(List<Integer> source) {
         Collections.sort(source);
-//        Set<Integer> set = new LinkedHashSet<>(source);
         List<String> strings = new ArrayList<String>(source.size());
         for(Integer i : source){
             if(!strings.contains(String.valueOf(i))){
